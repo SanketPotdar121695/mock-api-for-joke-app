@@ -11,10 +11,6 @@ const OPENAI_API_ENDPOINT = process.env.OPENAI_API_ENDPOINT; // API Endpoint
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  return res.status(200).send('<h1>Hello World !!!</h1>');
-});
-
 app.get('/joke', async (req, res) => {
   const { topic } = req.query;
 
