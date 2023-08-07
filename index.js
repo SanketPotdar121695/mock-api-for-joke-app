@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   return res.status(200).send('<h1>Hello World !!!</h1>');
 });
 
-app.get('/joke', async (req, res) => {
+app.get('/quote', async (req, res) => {
   const { topic } = req.query;
 
   try {
@@ -27,14 +27,14 @@ app.get('/joke', async (req, res) => {
           messages: [
             {
               role: 'user',
-              content: `Tell me a joke on '${topic}'. Return me the output in the following parsable json format:
+              content: `Tell me a quote on '${topic}' by some great philosophers. Return me the output in the following parsable json format:
     
-              {"English": "English translation of the joke", "Hindi": "Hindi translation of the joke"}
+              { "English": "English translation of the quote", "Hindi": "Hindi translation of the quote", "Author": "author of the quote" }
     
               Also, please avoid the introductory message.`
             }
           ],
-          max_tokens: 100,
+          max_tokens: 250,
           temperature: 1,
           n: 1
         },
